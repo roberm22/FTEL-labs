@@ -1,0 +1,12 @@
+Roberto martin
+cd lab3
+cat > paises.txt
+cat >> paises.txt
+sort paises.txt | grep e
+sort paises.txt -o listas-e.txt
+grep e paises.txt | sort -o lista-e.txt
+sort paises.txt > paises-ordenados.txt
+ls -l lista-e.txt
+chmod 660 lista-e.txt
+ls -l lista-e.txt
+history -w G14-L3-2.txt

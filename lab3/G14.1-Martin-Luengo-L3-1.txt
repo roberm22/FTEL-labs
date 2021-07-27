@@ -1,0 +1,21 @@
+Roberto Martin
+cat
+ls > lista-ficheros.txt
+cat > frutas 
+cat frutas
+sort frutas
+sort frutas -o frutas2
+sort > verduras
+cat >> frutas
+cat frutas
+cat frutas verduras > comida 
+cat comida
+sort frutas verduras > comida
+cat comida
+ls > nombres.txt
+wc - w < nombres.txt
+wc -w <nombres.txt
+ls | wc -w
+ls -l
+nano frutas
+history -w G14.1-L3-1.txt
