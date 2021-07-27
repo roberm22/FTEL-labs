@@ -1,0 +1,43 @@
+history
+mkdir lab1
+cd lab1
+ls -l
+ls
+ls -a
+ls -la
+nano prueba
+ls -l
+nano prueba1
+ls -l
+wc prueba
+wc prueba1
+cat prueba
+cat prueba1
+more prueba1
+less prueba1
+cp prueba1 prueba2
+cp prueba1 prueba3
+nano prueba3
+diff prueba1 prueba2
+nano prueba3
+diff prueba1 prueba2
+diff prueba1 prueba3
+mv prueba pp
+ls
+rm pp prueba2
+ls
+nano prueba1
+less prueba1
+grep -n Pepe prueba1
+ls p*
+ls p?
+cp prueba1 pp
+cp prueba1 p1
+cp prueba1 pa
+cp prueba1 pab
+ls p?
+rm -i p?
+ls p*
+history
+man ls
+history -w G14-L1-1.txt

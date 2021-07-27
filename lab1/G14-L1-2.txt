@@ -1,0 +1,19 @@
+Roberto Martin
+mkdir lab1
+cd lab1
+nano materias.txt
+wc materias.txt
+cp materias.txt temporal.txt
+cp materias.txt materias.bak
+nano temporal.txt
+less materias-profes.txt
+diff materias.txt materias.bak
+diff materias-profes.txt materias.bak
+diff materias.txt materias.bak
+ls -l
+ls mate*
+rm -i materias.bak
+ls
+rm -i materias.bak
+ls
+history -w G14-L1-2.txt
