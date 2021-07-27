@@ -1,0 +1,45 @@
+Roberto Martin
+nano fichero1
+mkdir lab2
+cd lab2
+mkdir dir1
+cd dir1
+nano fichero2
+cd ..
+mkdir dir2
+cd dir2
+mkdir dir3
+cd dir3
+nano fichero3
+nano fichero4
+cd
+tree
+cd /home/rober/lab2/dir2/dir3
+cd /home/rober/lab2/dir1
+cd
+cd lab2
+cd dir2
+cd ..
+cd dir1
+cd ..
+cd dir2
+cd dir3
+cd
+less /home/rober/fichero1
+nano /home/rober/lab2/dir2/dir3/fichero4
+mv /home/rober/lab2/dir2/dir3/fichero3 /home/rober/lab2/dir2/dir3/fichero5
+ls -l lab2/dir2/dir3
+nano lab2/dir2/dir3/fichero4
+less lab2/dir1/fichero2
+mv lab2/dir2/dir3/fichero4 lab2/dir2/dir3/fichero6
+tree
+cd
+cd lab2
+cd dir1
+cp /home/rober/fichero1 /home/rober/lab2/dir2/fichero7
+rm -i /home/rober/lab2/dir2/dir3/fich*
+cp ../../fichero1 ../dir2/dir3/fichero8
+rm -i ../dir2/fich*
+cd
+tree
+history -w G14-L2-1.txt

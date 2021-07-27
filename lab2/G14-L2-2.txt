@@ -1,0 +1,7 @@
+Roberto Martin
+cd lab2/dir2
+wc -l ../dir1/fichero2.txt
+wc -w ../../fichero1.txt
+diff ../../fichero1.txt ../dir1/fichero2.txt
+grep Roberto ../../fichero1.txt
+history -w G14-L2-2.txt
