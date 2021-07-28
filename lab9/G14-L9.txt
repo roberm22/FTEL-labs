@@ -1,0 +1,142 @@
+﻿FTEL - Laboratorio 9 - Formulario de entrega
+
+Se deben rellenar los siguientes resultados pedidos en el enunciado de la práctica:
+
+* Tarea 3. En el panel superior de Wireshark seleccione el paquete que realiza la petición GET correspondiente al recurso lab8.php. Expanda ahora el análisis del protocolo de aplicación. Observe que en la cabecera HTTP aparecen diversos campos que describen aspectos relacionados con la petición. Identifique: 
+- Versión del protocolo que usa el navegador (HTTP1.0 o HTTP1.1).
+
+HTTP1.1
+
+- ¿Cuál es la identificación del navegador que realiza la petición? 
+
+Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\r\n
+
+- ¿Cuál es el nombre de la línea de cabecera en la que va?
+
+User-Agent
+
+- ¿Cuál es el nombre de la línea de cabecera que identifica la máquina a la que se hace la petición?
+
+Host
+
+- ¿Cuáles son los idiomas en los que se prefiere recibir la información que envíe el servidor? 
+
+en-US,en;q=0.5\r\n
+
+- ¿Cuál es el nombre de la línea de cabecera donde se indican?
+
+Accept-Language
+
+- ¿Cuál es el nombre de la línea de cabecera donde se indica que el navegador puede aceptar texto HTML como contenido?
+
+Accept
+
+* Tarea 4. Estudio de las respuestas a la petición HTTP. Examine ahora el detalle de los paquetes que corresponden a las respuestas del servidor. Concretamente, identifique, para la respuesta que corresponde al logotipo de la UPM: 
+- Tamaño del fichero del logotipo y dónde ha encontrado dicha información (que debe haberse obtenido usando Wireshark).
+
+El tamaño son 389 bytes. Lo hemos encontrado en Internet Protocol Version 4 / Total Length
+
+Vuelva a arrancar la captura de Wireshark. Cargue de nuevo la página web de la práctica y examine en el analizador la petición GET que se refiere al logotipo de FTEL. 
+- ¿Aparece la línea de cabecera If-Modified-Since? En caso afirmativo, ¿cuál es el objetivo de incluir dicha línea en la petición?
+
+If-Modified-Since: Wed, 13 Oct 2010 07:15:49 GMT\r\n
+
+Esta hace referencia a la ultima vez que se modifico la pagina
+
+El objetivo es que el navegador le pregunte al servidor si el archivo se ha modificado o no y asi evitar tener que descargar el archivo HTML otra vez, por lo tanto lo recuperando de la caché del navegador ee archivo que ya tenia.
+
+- Examine las respuestas a las peticiones de las imágenes. ¿Qué código de estado aparece en ellas? ¿Qué significa eso para el navegador que recibe las respuestas?
+
+HTTP/1.1 304 Not Modified
+HTTP/1.1 304 Not Modified
+
+Los codigos 3xx significan redireccion, en este caso, en vez de recibir por parte del servidor, lo recibes de la caché del navegador­
+
+* Tarea 6. Tarea 6. Realización de consultas iterativas al DNS. Para cada uno de los sitios web indicados, realice los puntos que siguen.
+- En el cuadro de texto "Hostnames or IP addresses", escriba el nombre DNS del servidor web. En la columna "Options", marque la opción "trace". Pulse el botón "Dig". Incluya en el formulario de la práctica la salida de la orden anterior. 
+
+www.uni-regensburg.de@8.8.4.4 (Default):
+
+.			220307	IN	NS	i.root-servers.net.
+.			220307	IN	NS	l.root-servers.net.
+.			220307	IN	NS	a.root-servers.net.
+.			220307	IN	NS	h.root-servers.net.
+.			220307	IN	NS	f.root-servers.net.
+.			220307	IN	NS	k.root-servers.net.
+.			220307	IN	NS	g.root-servers.net.
+.			220307	IN	NS	m.root-servers.net.
+.			220307	IN	NS	b.root-servers.net.
+.			220307	IN	NS	c.root-servers.net.
+.			220307	IN	NS	d.root-servers.net.
+.			220307	IN	NS	e.root-servers.net.
+.			220307	IN	NS	j.root-servers.net.
+;; Received 228 bytes from 8.8.4.4#53(8.8.4.4) in 5 ms
+
+de.			172800	IN	NS	n.de.net.
+de.			172800	IN	NS	f.nic.de.
+de.			172800	IN	NS	a.nic.de.
+de.			172800	IN	NS	z.nic.de.
+de.			172800	IN	NS	l.de.net.
+de.			172800	IN	NS	s.de.net.
+;; Received 353 bytes from 199.9.14.201#53(199.9.14.201) in 66 ms
+
+uni-regensburg.de.	86400	IN	NS	dns2.uni-regensburg.de.
+uni-regensburg.de.	86400	IN	NS	dns-3.dfn.de.
+uni-regensburg.de.	86400	IN	NS	dns1.uni-regensburg.de.
+;; Received 233 bytes from 194.246.96.1#53(194.246.96.1) in 232 ms
+
+www.uni-regensburg.de.	86400	IN	CNAME	wwwslb.uni-regensburg.de.
+wwwslb.uni-regensburg.de. 86400	IN	A	194.94.155.125
+uni-regensburg.de.	86400	IN	NS	dns-3.dfn.de.
+uni-regensburg.de.	86400	IN	NS	dns2.uni-regensburg.de.
+uni-regensburg.de.	86400	IN	NS	dns1.uni-regensburg.de.
+;; Received 270 bytes from 193.174.75.58#53(193.174.75.58) in 114 ms
+
+
+www.uni-potsdam.de@8.8.4.4 (Default):
+
+.			232833	IN	NS	k.root-servers.net.
+.			232833	IN	NS	i.root-servers.net.
+.			232833	IN	NS	f.root-servers.net.
+.			232833	IN	NS	g.root-servers.net.
+.			232833	IN	NS	b.root-servers.net.
+.			232833	IN	NS	h.root-servers.net.
+.			232833	IN	NS	l.root-servers.net.
+.			232833	IN	NS	m.root-servers.net.
+.			232833	IN	NS	j.root-servers.net.
+.			232833	IN	NS	a.root-servers.net.
+.			232833	IN	NS	d.root-servers.net.
+.			232833	IN	NS	c.root-servers.net.
+.			232833	IN	NS	e.root-servers.net.
+;; Received 228 bytes from 8.8.4.4#53(8.8.4.4) in 5 ms
+
+de.			172800	IN	NS	f.nic.de.
+de.			172800	IN	NS	z.nic.de.
+de.			172800	IN	NS	n.de.net.
+de.			172800	IN	NS	a.nic.de.
+de.			172800	IN	NS	s.de.net.
+de.			172800	IN	NS	l.de.net.
+;; Received 350 bytes from 199.7.91.13#53(199.7.91.13) in 2 ms
+
+uni-potsdam.de.		86400	IN	NS	deneb.dfn.de.
+uni-potsdam.de.		86400	IN	NS	ns.uni-potsdam.de.
+uni-potsdam.de.		86400	IN	NS	schinkel.rz.uni-potsdam.de.
+uni-potsdam.de.		86400	IN	NS	dns-3.dfn.de.
+;; Received 215 bytes from 194.246.96.1#53(194.246.96.1) in 229 ms
+
+www.uni-potsdam.de.	3600	IN	A	141.89.68.50
+uni-potsdam.de.		3600	IN	NS	deneb.dfn.de.
+uni-potsdam.de.		3600	IN	NS	schinkel.rz.uni-potsdam.de.
+uni-potsdam.de.		3600	IN	NS	ns.uni-potsdam.de.
+uni-potsdam.de.		3600	IN	NS	dns-3.dfn.de.
+;; Received 287 bytes from 193.174.75.58#53(193.174.75.58) in 114 ms
+
+- Indique cuál es la dirección IP del servidor web buscado.
+
+Primer enlace: 194.94.155.125
+
+Segundo enlace:141.89.68.50
+
+- ¿El nombre del servidor web es un “alias”? ¿Por qué?
+El primero si es un alias porque se puede observar CNAME wwwslb.uni-regensburg.de. Y si no lo fuese, esto no apareceria.
+El segundo no lo es, porque como se puede observar, la orden anterior CNAME no aparece
