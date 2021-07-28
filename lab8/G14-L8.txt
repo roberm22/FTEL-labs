@@ -1,0 +1,81 @@
+﻿
+FTEL - Laboratorio 8 - Formulario de entrega
+
+Se deben rellenar los siguientes resultados pedidos en el enunciado de la práctica:
+
+* Tarea 1.
+- Dirección IP del ordenador en el que ha realizado la práctica:
+
+138.4.31.167
+
+* Tarea 4.
+-  Indique en qué posición dentro de la cabecera IP se encuentran los octetos que en la cabecera IP  llevan la dirección origen del paquete IP:
+
+13,14,15,16
+
+- Indique justificadamente si al transmitirse por la red los octetos de la dirección IP se envían en el orden del convenio extremista mayor o el extremista menor:
+se usa primero el convenio extremista mayor dado que se envia asi dichos bytes siendo mi ip 138.4.31.167 es decir, 8A.4.1F.A7
+
+* Tarea 5.
+- Anote los puertos origen y destino del paquete examinado:
+
+origen 80 y destino 50186
+
+- ¿Qué protocolo de aplicación está asociado al puerto destino?:
+
+http
+
+* Tarea 7.
+- Haga un traceroute, con la opción -N 1, a la dirección IP anotada en el punto anterior. Compare las direcciones IP que le va mostrando asociadas a cada número de saltos con las direcciones que le han aparecido en los pings que ha hecho en esta tarea y explique las coincidencias:
+
+podemos observar que coincide con las primeras direcciones IP 
+
+ traceroute -N 1 148.253.225.196
+traceroute to 148.253.225.196 (148.253.225.196), 30 hops max, 60 byte packets
+ 1  router.lab.dit.upm.es (138.4.30.1)  0.191 ms  0.175 ms  0.135 ms
+ 2  fw.lab.dit.upm.es (138.4.26.1)  0.255 ms  0.273 ms  0.270 ms
+ 3  r7000-ext.dit.upm.es (138.4.0.1)  0.550 ms  0.565 ms  0.548 ms
+ 4  192.168.100.65 (192.168.100.65)  0.483 ms  0.486 ms  10.785 ms
+ 5  192.168.200.84 (192.168.200.84)  3.425 ms  0.489 ms  0.492 ms
+ 6  ciemat-rt-ju-02-xe-4-0-2.net.redimadrid.es (193.145.14.134)  1.154 ms  1.114 ms  1.098 ms
+ 7  AE3-103.ciemat.rt1.mad.red.rediris.es (130.206.212.105)  1.219 ms  10.858 ms  33.570 ms
+ 8  cdnetworks.baja.espanix.net (193.149.1.80)  2.153 ms  1.957 ms  1.833 ms
+ 9  148.253.225.196 (148.253.225.196)  1.795 ms  1.731 ms  1.866 ms
+
+* Tarea 8.
+- Incluya la salida de dicha orden en el formulario de respuesta:
+
+r.mluengo@l228:~$ traceroute www.fsu.edu
+traceroute to www.fsu.edu (146.201.111.62), 30 hops max, 60 byte packets
+ 1  router.lab.dit.upm.es (138.4.30.1)  0.146 ms  0.150 ms  0.137 ms
+ 2  fw-lab.lab.dit.upm.es (138.4.26.1)  0.237 ms  0.271 ms  0.258 ms
+ 3  r7000-ext.dit.upm.es (138.4.0.1)  0.691 ms  0.685 ms  0.810 ms
+ 4  192.168.100.65 (192.168.100.65)  0.508 ms  0.494 ms  0.479 ms
+ 5  192.168.200.84 (192.168.200.84)  0.445 ms  2.256 ms  2.245 ms
+ 6  ciemat-rt-ju-02-xe-4-0-2.net.redimadrid.es (193.145.14.134)  1.042 ms  0.897 ms  0.862 ms
+ 7  AE3-103.ciemat.rt1.mad.red.rediris.es (130.206.212.105)  2.278 ms  1.183 ms  14.700 ms
+ 8  CIEMAT.AE2.telmad.rt4.mad.red.rediris.es (130.206.245.2)  1.581 ms  1.572 ms  1.773 ms
+ 9  rediris.mx1.mar.fr.geant.net (62.40.124.192)  15.830 ms  15.923 ms  15.511 ms
+10  ae8.mx1.gen.ch.geant.net (62.40.98.73)  21.860 ms  21.876 ms  21.917 ms
+11  ae4.mx1.par.fr.geant.net (62.40.98.152)  28.824 ms  44.617 ms  44.538 ms
+12  ae1.mx1.lon2.uk.geant.net (62.40.98.76)  35.519 ms  35.466 ms  35.461 ms
+13  ae3.mx1.lon.uk.geant.net.geant.net (62.40.98.78)  63.087 ms  63.085 ms  62.907 ms
+14  internet2-gw.mx1.lon.uk.geant.net (62.40.124.45)  110.935 ms  111.019 ms  110.932 ms
+15  ae-1.4079.rtsw.atla.net.internet2.edu (198.71.45.6)  123.920 ms  123.852 ms  123.845 ms
+16  et-3-0-0.4079.sdn-sw.jack.net.internet2.edu (162.252.70.43)  129.299 ms  129.351 ms  129.380 ms
+17  jax-flrcore-asr9010-1-hu0700-1070.net.flrnet.org (108.59.25.20)  129.993 ms  130.005 ms  129.890 ms
+18  tlh-flrcore-asr9010-1-hu0701-1.net.flrnet.org (108.59.31.158)  133.005 ms  133.430 ms  132.881 ms
+19  FSU-Campus-2-FLR-TLH-RE-v1902.net.flrnet.org (108.59.25.241)  132.999 ms *  132.819 ms
+20  vl4000.bfs-dc.net.fsu.edu (128.186.248.2)  133.065 ms  133.076 ms  134.141 ms
+21  webvm.its.fsu.edu (146.201.111.62)  133.015 ms  132.964 ms  132.906 ms
+r.mluengo@l228:~$ 
+
+- ¿A cuántos saltos se encuentra de su ordenador el servidor indicado?:
+
+A 21 saltos se encuentra
+
+- ¿Entre qué máquinas (dé sus nombres y direcciones IP) se produce el mayor incremento del RTT? Indique una posible explicación de este incremento:
+Es entre ae3.mx1.lon.uk.geant.net.geant.net con direccion ip 62.40.98.78 y
+internet2-gw.mx1.lon.uk.geant.net con direccion ip 62.40.124.45
+Elegimos esta porque es donde mas incremento de ms hay. Porque pasa de la red de europa, GEANT, a la de EEUU, que es internet2, y es mucha distancia la que tiene que recorrer
+
