@@ -1,0 +1,277 @@
+﻿FTEL - Laboratorio 7 - Formulario de entrega
+
+Se deben rellenar los siguientes resultados pedidos en el enunciado de la práctica. NO borre nada de lo que ya está escrito.
+
+* Tarea 3. 
+
+3.1 Recorte y pegue aquí las sentencias CREATE TABLE usadas para crear las tablas de la base de datos:
+
+create table gente (id int(4) NOT NULL, alias varchar(30) DEFAULT NULL, nombre varchar(30) DEFAULT NULL, foto varchar(30) DEFAULT NULL, PRIMARY KEY (id));
+
+create table grupo (nombre varchar(30) NOT NULL, fecha_creación date DEFAULT NULL, escudo varchar(30) DEFAULT NULL, PRIMARY KEY (nombre));
+
+create table sitio (id int(4) NOT NULL, nombre varchar(30) DEFAULT NULL, foto varchar(30) DEFAULT NULL, geolocalización varchar(30) DEFAULT NULL, PRIMARY KEY (id));
+
+create table quedada (id int(4) NOT NULL, nombre varchar(30) DEFAULT NULL,fechahora datetime DEFAULT NULL, foto varchar(30) DEFAULT NULL, PRIMARY KEY (id));
+
+create table pertenece (id_gente int(4) NOT NULL, nombre varchar(30) NOT NULL, PRIMARY KEY (id_gente,nombre));Query OK, 0 rows affected (0.05 sec)
+
+create table asiste (id_gente int(4) NOT NULL, id_quedada int(4) NOT NULL,  PRIMARY KEY (id_gente,id_quedada));
+
+
+3.2. Recorte y pegue aquí el resultado de la sentencia DESCRIBE para cada una de las tablas creadas:
+
+mysql> describe gente;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int(4)      | NO   | PRI | NULL    |       |
+| alias  | varchar(30) | YES  |     | NULL    |       |
+| nombre | varchar(30) | YES  |     | NULL    |       |
+| foto   | varchar(30) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe grupo;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| nombre          | varchar(30) | NO   | PRI | NULL    |       |
+| fecha_creación  | date        | YES  |     | NULL    |       |
+| escudo          | varchar(30) | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> describe sitio;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| id               | int(4)      | NO   | PRI | NULL    |       |
+| nombre           | varchar(30) | YES  |     | NULL    |       |
+| foto             | varchar(30) | YES  |     | NULL    |       |
+| geolocalización  | varchar(30) | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe quedada;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| id           | int(4)      | NO   | PRI | NULL    |       |
+| nombre       | varchar(30) | YES  |     | NULL    |       |
+| fechahora    | datetime    | YES  |     | NULL    |       |
+| foto         | varchar(30) | YES  |     | NULL    |       |
+| id_sitio     | int(4)      | YES  |     | NULL    |       |
+| nombre_grupo | varchar(30) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe pertenece;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id_gente | int(4)      | NO   | PRI | NULL    |       |
+| nombre   | varchar(30) | NO   | PRI | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> describe asiste;
++------------+--------+------+-----+---------+-------+
+| Field      | Type   | Null | Key | Default | Extra |
++------------+--------+------+-----+---------+-------+
+| id_gente   | int(4) | NO   | PRI | NULL    |       |
+| id_quedada | int(4) | NO   | PRI | NULL    |       |
++------------+--------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+
+3.3. Explique brevemente cuáles son los elementos del diagrama E-R de la práctica que se deben transformar en tablas, cuáles no y por qué:
+
+Se debe de hacer tablas de todas las identidades del diagrama (gente, quedada, grupo y sitio) así como de todas las relaciones N:M (pertenece, asiste)
+
+
+3.4. Recorte y pegue aquí el resultado que muestra MySQL con la sentencia SHOW TABLES:
+
+
+mysql> show tables;
++-----------------------+
+| Tables_in_misquedadas |
++-----------------------+
+| asiste                |
+| gente                 |
+| grupo                 |
+| pertenece             |
+| quedada               |
+| sitio                 |
++-----------------------+
+6 rows in set (0.00 sec)
+
+
+
+
+* Tarea 4. 
+
+4.1. Recorte y pegue aquí todas las sentencias INSERT INTO que haya utilizado para rellenar las tablas:
+
+mysql> insert into grupo values('Jaime Martinez','2017-11-23','imagen');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into grupo values('Mario Cendrero','2017-11-23','imagen');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into grupo values('Sofia Martin','2017-11-23','imagen');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into quedada values ('345','Jaime Martin','2017-11-23 13:40:00','foto1',346, 'Jaime Martinez');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into quedada values ('346','Mario Cendrero','2017-11-23 13:40:00','foto2',347, 'Mario Cendrero');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into quedada values ('347','Sofia Martin','2017-11-23 13:40:00','foto3', 345, 'Sofia Martin');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into sitio values ('345','Jaime Martin','foto1','40.453096, -3.687849');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into sitio values ('346','Mario Cendrero','foto2','40.453096, -3.687849');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into sitio values ('347','Sofia Martin','foto3','40.453096, -3.687849');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into sitio values ('348','Rodolfo Gonzalez','foto4','40.453096, -3.687849');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into pertenece values ('345','Jaime Martin');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into pertenece values ('346','Mario Cendrero');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into pertenece values ('347','Sofia Martin');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into pertenece values ('348','Rodolfo Gonzalez');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into gente values ('345','Jaime','Jaime Martin','foto1');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into gente values ('346','Mario','Mario Cendrero','foto2');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into gente values ('347','Sofia','Sofia Martin','foto3');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into gente values ('348','Rodolfo','Rodolfo Gonzalez','foto4');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into asiste values ('345','1');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into asiste values ('346','2');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into asiste values ('347','3');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into asiste values ('348','4');
+Query OK, 1 row affected (0.02 sec)
+
+* Tarea 5.
+ 
+5.1. Recorte y pegue aquí el resultado de las sentencias SELECT  para cada una de las tablas creadas:
+
+
+mysql> select * from grupo
+    -> ;
++----------------+-----------------+--------+
+| nombre         | fecha_creación  | escudo |
++----------------+-----------------+--------+
+| Jaime Martinez | 2017-11-23      | imagen |
+| Mario Cendrero | 2017-11-23      | imagen |
+| Sofia Martin   | 2017-11-23      | imagen |
++----------------+-----------------+--------+
+3 rows in set (0.00 sec)
+
+
+mysql> select * from quedada;
++-----+----------------+---------------------+-------+----------+----------------+
+| id  | nombre         | fechahora           | foto  | id_sitio | nombre_grupo   |
++-----+----------------+---------------------+-------+----------+----------------+
+| 345 | Jaime Martin   | 2017-11-23 13:40:00 | foto1 |      346 | Jaime Martinez |
+| 346 | Mario Cendrero | 2017-11-23 13:40:00 | foto2 |      347 | Mario Cendrero |
+| 347 | Sofia Martin   | 2017-11-23 13:40:00 | foto3 |      345 | Sofia Martin   |
++-----+----------------+---------------------+-------+----------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from sitio
+    -> ;
++-----+------------------+-------+----------------------+
+| id  | nombre           | foto  | geolocalización      |
++-----+------------------+-------+----------------------+
+| 345 | Jaime Martin     | foto1 | 40.453096, -3.687849 |
+| 346 | Mario Cendrero   | foto2 | 40.453096, -3.687849 |
+| 347 | Sofia Martin     | foto3 | 40.453096, -3.687849 |
+| 348 | Rodolfo Gonzalez | foto4 | 40.453096, -3.687849 |
++-----+------------------+-------+----------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from pertenece
+    -> ;
++----------+------------------+
+| id_gente | nombre           |
++----------+------------------+
+|      345 | Jaime Martin     |
+|      346 | Mario Cendrero   |
+|      347 | Sofia Martin     |
+|      348 | Rodolfo Gonzalez |
++----------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from gente
+    -> ;
++-----+---------+------------------+-------+
+| id  | alias   | nombre           | foto  |
++-----+---------+------------------+-------+
+| 345 | Jaime   | Jaime Martin     | foto1 |
+| 346 | Mario   | Mario Cendrero   | foto2 |
+| 347 | Sofia   | Sofia Martin     | foto3 |
+| 348 | Rodolfo | Rodolfo Gonzalez | foto4 |
++-----+---------+------------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from asiste
+    -> ;
++----------+------------+
+| id_gente | id_quedada |
++----------+------------+
+|      345 |          1 |
+|      346 |          2 |
+|      347 |          3 |
+|      348 |          4 |
++----------+------------+
+4 rows in set (0.00 sec)
+
+
+5.2. Escriba una sentencia SELECT para realizar la consulta que se indique en la tarea correspondiente a su grupo de clase:
+
+select quedada.nombre, nombre_grupo, fechahora, sitio.nombre from quedada, sitio where quedada.id_sitio = sitio.id order by fechahora;
+
+
+     Recorte y pegue aquí el resultado que da MySQL al ejecutar la sentencia SELECT anterior:
+
++----------------+----------------+---------------------+----------------+
+| nombre         | nombre_grupo   | fechahora           | nombre         |
++----------------+----------------+---------------------+----------------+
+| Mario Cendrero | Mario Cendrero | 2017-11-23 13:40:00 | Sofia Martin   |
+| Sofia Martin   | Sofia Martin   | 2017-11-23 13:40:00 | Jaime Martin   |
+| Jaime Martin   | Jaime Martinez | 2017-11-23 13:40:00 | Mario Cendrero |
++----------------+----------------+---------------------+----------------+
+
+
+
+-------------------------------
